@@ -1,0 +1,27 @@
+.container-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.botao-final{
+    padding: 12px 20px 12px 20px ;
+    border-radius: 8px;
+    width: 150px;
+    height: 48px;
+    gap:8px;
+    border: none;
+    background-color: #efe4ff;
+    color: #6941c6;
+    margin-top: 64px; 
+    margin-bottom: 96px;
+    font-size: 16px;
+    font-weight: 500;
+} 
+
+.imagem-button{
+    width: 15px;
+    height: 15px;
+    margin-right: 6px;
+}
