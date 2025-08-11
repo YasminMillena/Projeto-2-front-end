@@ -1,33 +1,40 @@
 
+import React, { useEffect, useState } from "react";
 import './App.css';
 import Card from './componentes/Card';
 import Header from "./componentes/Header";
 import Footer from "./componentes/Footer";
-import Background from "../src/assets/imagens/Background pattern (1).png";
-
-
-
 
 function App() {
+  const [cards, setCards] = useState([]);
+
+  useEffect(() => {
+    fetch("/api/cards")
+      .then((res) => res.json())
+      .then((data) => setCards(data));
+  }, []);
+
   return (
     <div className="App">
       <Header/>     
-      {/* <img src={Background} alt="background" /> */}
+     
 
-      <div className='bg'
-      >
+      <div className='bg'>
 
-      <div className='card-list'>
-        <Card/>
-        <Card/>
-        <Card/>
-        <Card/>
-        <Card/>
-        <Card/>
-        <Card/>
-        <Card/>
-        <Card/>
-       </div>
+       <div className='card-list'>
+          {cards.map(card => (
+            <Card
+              key={card.id}
+              category={card.category}
+              title={card.title}
+              description={card.description}
+              author={card.author}
+              date={card.date}
+              image={card.image}
+              avatar={card.avatar}
+            />
+          ))}
+        </div>
        <Footer/>
     </div>
       </div>
